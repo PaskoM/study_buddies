@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_organiser: one
+  location: one
+  subject: one
+  review: one
+
+two:
+  user_organiser: two
+  location: two
+  subject: two
+  review: two
