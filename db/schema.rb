@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_20_124017) do
+ActiveRecord::Schema.define(version: 2020_01_20_154626) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 2020_01_20_124017) do
     t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "capacity"
+    t.string "city"
+  end
+
+  create_table "participants", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "study_group_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["study_group_id"], name: "index_participants_on_study_group_id"
+    t.index ["user_id"], name: "index_participants_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -42,21 +53,18 @@ ActiveRecord::Schema.define(version: 2020_01_20_124017) do
   end
 
   create_table "study_groups", force: :cascade do |t|
-    t.integer "user_organiser_id", null: false
+    t.integer "user_id", null: false
     t.integer "location_id", null: false
     t.integer "subject_id", null: false
-    t.integer "review_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "date"
+    t.time "time"
+    t.float "duration"
+    t.integer "num_participants"
     t.index ["location_id"], name: "index_study_groups_on_location_id"
-    t.index ["review_id"], name: "index_study_groups_on_review_id"
     t.index ["subject_id"], name: "index_study_groups_on_subject_id"
-    t.index ["user_organiser_id"], name: "index_study_groups_on_user_organiser_id"
-  end
-
-  create_table "study_groups_users", id: false, force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "study_group_id", null: false
+    t.index ["user_id"], name: "index_study_groups_on_user_id"
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -68,7 +76,6 @@ ActiveRecord::Schema.define(version: 2020_01_20_124017) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.boolean "organiser"
     t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -76,10 +83,11 @@ ActiveRecord::Schema.define(version: 2020_01_20_124017) do
 
   add_foreign_key "comments", "study_groups"
   add_foreign_key "comments", "users"
+  add_foreign_key "participants", "study_groups"
+  add_foreign_key "participants", "users"
   add_foreign_key "reviews", "study_groups"
   add_foreign_key "reviews", "users"
   add_foreign_key "study_groups", "locations"
-  add_foreign_key "study_groups", "reviews"
   add_foreign_key "study_groups", "subjects"
-  add_foreign_key "study_groups", "user_organisers"
+  add_foreign_key "study_groups", "users"
 end
