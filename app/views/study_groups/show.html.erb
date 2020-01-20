@@ -1,6 +1,11 @@
-<%= link_to "My Study Groups", study_groups_path %>
-<%= link_to "Create Study Group", new_study_group_path%>
-<%= linkt_to "Update Profile", edit_user_path%>
-<%= link_to "Delete Profile", @user, method: :delete, data: {confirm: "Are you sure?"}%>
-<%=%>
-<%=%>
+<p><%= @study_group.name %></p>
+<p><%= @study_group.date %></p>
+<p><%= @study_group.location.name %></p>
+<p><%= @study_group.location.address %></p>
+<p><%= @study_group.description %></p>
+<p><%= @study_group.duration %></p>
+<p><%= @study_group.num_participants %></p>
+<ul><% @study_group.participants.each do |participant| %>
+    <li><%= participant.user.name%></li>
+<%end%>
+</ul>

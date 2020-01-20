@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_20_154626) do
+ActiveRecord::Schema.define(version: 2020_01_20_180025) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 2020_01_20_154626) do
     t.time "time"
     t.float "duration"
     t.integer "num_participants"
+    t.string "name"
+    t.text "description"
     t.index ["location_id"], name: "index_study_groups_on_location_id"
     t.index ["subject_id"], name: "index_study_groups_on_subject_id"
     t.index ["user_id"], name: "index_study_groups_on_user_id"
@@ -76,7 +78,7 @@ ActiveRecord::Schema.define(version: 2020_01_20_154626) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

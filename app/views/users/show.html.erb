@@ -1,6 +1,8 @@
-<%= link_to "My Study Groups", study_groups_path %>
-<%= link_to "Create Study Group", new_study_group_path%>
-<%= linkt_to "Update Profile", edit_user_path%>
-<%= link_to "Delete Profile", @user, method: :delete, data: {confirm: "Are you sure?"}%>
+<ul>
+<li><%= link_to "My Study Groups"  %></li>
+<li><%= link_to "Create Study Group", new_study_group_path%></li>
+<li><%= link_to "Update Profile", edit_user_path%></li>
+<li><%= link_to "Delete Profile", @user, method: :delete, data: {confirm: "Are you sure?"}%></li>
 <%=%>
 <%=%>
+</ul>

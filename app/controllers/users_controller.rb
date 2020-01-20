@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
+    
+    #before_filter :authorize, :unless => logged_in?
+    
     def welcome
     end
 
     def new 
-        @user = User.new
     end 
 
     def show 
@@ -13,6 +15,7 @@ class UsersController < ApplicationController
     def create
         @user = User.create(user_params)
         if @user.valid?
+            session[:user_id] = @user.id
             redirect_to study_groups_path 
         else 
             render 'new' 
@@ -32,11 +35,17 @@ class UsersController < ApplicationController
             render 'edit'  
         end 
     end
+
+    def destroy
+        @user = User.find(params[:id])
+        @user.delete
+        redirect_to '/'
+    end
     
 
     private 
 
     def user_params 
-        params.require(:user).permit(:name, :email, :password)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end 
 end
