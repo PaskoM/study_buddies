@@ -1,8 +1,28 @@
 class StudyGroupsController < ApplicationController
 
     def index
-        @study_groups = StudyGroup.all 
+        @study_groups = StudyGroup.all
+        @subjects = Subject.all        
     end 
+
+    def filter
+        @subjects = Subject.all
+        search_id = params[:search][:id]
+        @filtered_groups = StudyGroup.filter(search_id)
+        if !@filtered_groups.empty?
+            flash[:notice] = "hola"
+            @filtered_groups
+        else
+            flash[:notice] = "hellu"
+            @filtered_groups = StudyGroup.all
+        end
+    end
+
+    def join
+        @study_group = StudyGroup.find params[:id]
+        Participant.create(user_id: current_user.id, study_group_id: @study_group.id)
+        redirect_to @study_group
+      end
 
     def new 
         @study_group = StudyGroup.new
@@ -10,6 +30,7 @@ class StudyGroupsController < ApplicationController
 
     def show 
         @study_group = StudyGroup.find(params[:id])
+   
     end 
 
     def create
@@ -41,6 +62,6 @@ class StudyGroupsController < ApplicationController
     private 
 
     def study_group_params 
-        params.require(:study_group).permit(:user_id, :location_id, :subject_id, :date, :time, :num_participants, :duration, :description)
+        params.require(:study_group).permit(:user_id, :location_id, :subject_id, :date, :time, :num_participants, :duration, :description, :name)
     end
 end

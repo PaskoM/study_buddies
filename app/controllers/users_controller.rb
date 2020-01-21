@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     
-    #before_filter :authorize, :unless => logged_in?
+    before_action :require_login
+    skip_before_action :require_login, only: [:welcome, :new, :create] 
     
     def welcome
     end
@@ -18,6 +19,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to study_groups_path 
         else 
+            flash[:errors] = @user.errors.full_messages
             render 'new' 
         end 
     end 
@@ -48,4 +50,8 @@ class UsersController < ApplicationController
     def user_params 
         params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end 
+    
+    def require_login
+        return head(:forbidden) unless session.include? :user_id
+    end
 end

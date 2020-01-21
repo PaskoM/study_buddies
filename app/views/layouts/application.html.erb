@@ -10,9 +10,18 @@
   </head>
 
   <body>
-  <% if current_user %>
-  <h1>Hello</h1>
-  <%end%>
+  <% if flash[:errors] %>
+      <div style="color: red;">
+      <% flash[:errors].each do |message| %>
+          <p><%= message %></p>
+      <% end %>
+      </div>
+      <% end %>
+      <% if flash[:notice] %>
+      <div style="color: green;">
+          <p><%= flash[:notice] %></p>
+      </div>
+      <% end %>
     <%= yield %>
   </body>
 </html>

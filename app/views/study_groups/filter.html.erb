@@ -1,12 +1,12 @@
 <h1>Study Groups</h1>
 
-<%= form_tag '/study_groups/filter' do %>
-    <%= collection_select :search,:id, @subjects, :id, :name%>
+<%= form_tag '/study_groups' do %>
+    <%= collection_select :search, :id, @subjects, :id, :name%>
     <button type="submit" >filter</button>
 
 <% end %>
 
-<% @study_groups.each do |study_group|%>
+<% @filtered_groups.each do |study_group|%>
 <p><%= link_to study_group.name, study_group %></p>
 <p><%= study_group.date %></p>
 <p><%= study_group.location.name %></p>

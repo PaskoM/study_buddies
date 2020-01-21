@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id 
             redirect_to study_groups_path  
         else 
+            flash[:notice] = "Email or password incorrect"
             redirect_to '/login'
         end 
     end 
@@ -17,5 +18,6 @@ class SessionsController < ApplicationController
         session[:user_id] = nil 
         redirect_to '/login'
     end 
+    
 
 end 

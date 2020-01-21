@@ -1,0 +1,9 @@
+<% @chosen_subjects.each do |study_group|%>
+<p><%= link_to study_group.name %></p>
+<p><%= study_group.date %></p>
+<p><%= study_group.location.name %></p>
+<p><%= study_group.location.address %></p>
+<p><%= study_group.description %></p>
+<p><%= study_group.duration %></p>
+<p><%= study_group.num_participants %></p>
+<%= link_to "Profile", current_user %>
