@@ -8,7 +8,8 @@ class StudyGroupsController < ApplicationController
     def filter
         @subjects = Subject.all
         search_id = params[:search][:id]
-        @filtered_groups = StudyGroup.filter(search_id)
+        @filtered_groups = StudyGroup.filter(search_id.to_i)
+        # byebug
         if !@filtered_groups.empty?
             flash[:notice] = "hola"
             @filtered_groups
