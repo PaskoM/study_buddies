@@ -5,9 +5,20 @@
 <p><%= @study_group.description %></p>
 <p><%= @study_group.duration %></p>
 <p><%= @study_group.num_participants %></p>
+<p>Number od attendees: <%= @study_group.participants.count %></p>
+<p>Number of places left: <%= @study_group.num_places_left%>
 <ul><% @study_group.participants.each do |participant| %>
     <li><%= participant.user.name%></li>
 <%end%>
 </ul>
 
-<%= link_to 'join', join_study_group_path(@study_group) %>
+
+
+<% if @current_user == @user %>
+<% if current_user.participants.include?(@user)%>
+<%= link_to 'Leave', leave_study_group_path(@study_group) %>
+<% else %>
+<%= link_to 'Join', join_study_group_path(@study_group) %>
+<% end %>
+<%end%>
+

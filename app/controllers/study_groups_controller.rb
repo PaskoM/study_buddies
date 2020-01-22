@@ -11,10 +11,10 @@ class StudyGroupsController < ApplicationController
         @filtered_groups = StudyGroup.filter(search_id.to_i)
         # byebug
         if !@filtered_groups.empty?
-            flash[:notice] = "hola"
+            flash[:notice] = "Please update your search"
             @filtered_groups
         else
-            flash[:notice] = "hellu"
+            flash[:notice] = "Search again"
             @filtered_groups = StudyGroup.all
         end
     end
@@ -23,7 +23,13 @@ class StudyGroupsController < ApplicationController
         @study_group = StudyGroup.find params[:id]
         Participant.create(user_id: current_user.id, study_group_id: @study_group.id)
         redirect_to @study_group
-      end
+    end
+
+    def leave
+        @study_group = StudyGroup.find params[:id]
+        Participant.find_by(user_id: current_user.id, study_group_id: @study_group.id).destroy
+        redirect_to @study_group
+    end 
 
     def new 
         @study_group = StudyGroup.new
@@ -31,7 +37,6 @@ class StudyGroupsController < ApplicationController
 
     def show 
         @study_group = StudyGroup.find(params[:id])
-   
     end 
 
     def create
@@ -41,6 +46,7 @@ class StudyGroupsController < ApplicationController
         if @study_group.valid?
             redirect_to @study_group
         else 
+            flash[:errors] = @study_group.errors.full_messages
             render 'new' 
         end 
     end 
@@ -51,12 +57,20 @@ class StudyGroupsController < ApplicationController
 
     def update 
         @study_group = StudyGroup.find(params[:id])
+        @study_group.user_id = current_user.id
         @study_group.update(study_group_params)
         if @study_group.valid?
             redirect_to @study_group 
         else 
+            flash[:errors] = @study_group.errors.full_messages
             render 'edit'  
         end 
+    end
+
+    def destroy
+        @study_group = StudyGroup.find(params[:id])
+        @study_group.delete
+        redirect_to '/'
     end
     
 
