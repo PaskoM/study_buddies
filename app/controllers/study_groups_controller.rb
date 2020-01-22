@@ -9,12 +9,9 @@ class StudyGroupsController < ApplicationController
         @subjects = Subject.all
         search_id = params[:search][:id]
         @filtered_groups = StudyGroup.filter(search_id.to_i)
-        # byebug
         if !@filtered_groups.empty?
-            flash[:notice] = "Please update your search"
             @filtered_groups
         else
-            flash[:notice] = "Search again"
             @filtered_groups = StudyGroup.all
         end
     end

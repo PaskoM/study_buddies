@@ -1,15 +1,11 @@
 <h1>Study Groups</h1>
 
-<%= link_to "main page", study_groups_path %>
+<%= link_to "See all study groups", study_groups_path %>
 
 <% @filtered_groups.each do |study_group|%>
 <p><%= link_to study_group.name, study_group %></p>
-<p><%= study_group.date %></p>
-<p><%= study_group.location.name %></p>
-<p><%= study_group.location.address %></p>
-<p><%= study_group.description %></p>
-<p><%= study_group.duration %></p>
-<p><%= study_group.num_participants %></p>
+<p><%= study_group.date.strftime("%A, %d/%m/%Y") %></p>
+<p>FlatIron Class: <%= study_group.location.name %></p>
+<p>Places Available: <%= study_group.num_places_left %></p>
 <br>
 <% end %><br>
-<%= link_to "Profile", current_user %>

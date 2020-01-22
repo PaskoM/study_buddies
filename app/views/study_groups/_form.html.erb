@@ -1,21 +1,21 @@
 <%= form_for (@study_group) do |f|%>
-<%= f.label :name %>
-<%= f.text_field :name%>
-<%= f.label :subject_id%>
-<%= f.collection_select :subject_id, Subject.all, :id, :name, {:prompt => "Select Subject"}%>
-<%= f.label :description%>
-<%= f.text_area :description%>
-<%= f.label :date%>
-<%= f.date_field :date%>
-<%= f.label :time%>
-<%= f.time_field :time%>
-<%= f.label :location_id%>
-<%= f.collection_select :location_id, Location.all, :id, :name, {:prompt => "Select Location"}%>
-<%= f.label :duration%>
-<%= f.number_field :duration%>
-<%= f.label :num_participants%>
-<%= f.number_field :num_participants%>
+<p><%= f.label :name %></p>
+<p><%= f.text_field :name%></p>
+<p><%= f.label :subject_id%></p>
+<p><%= f.collection_select :subject_id, Subject.all, :id, :name, {:prompt => "Select Subject"}%></p>
+<p><%= f.label :description%></p>
+<p><%= f.text_area :description%></p>
+<p><%= f.label :date%></p>
+<p><%= f.date_field :date%></p>
+<p><%= f.label :time%></p>
+<p><%= f.time_field :time%></p>
+<p><%= f.label :location_id%></p>
+<p><%= f.collection_select :location_id, Location.all, :id, :name, {:prompt => "Select Location"}%></p>
+<p><%= f.label :duration%></p>
+<p><%= f.number_field :duration, min: 0%></p>
+<p><%= f.label :num_participants, "Participants"%></p>
+<p><%= f.number_field :num_participants, min: 0%></p>
 
 
-<%= f.submit%>
+<p><%= f.submit%></p>
 <%end%>

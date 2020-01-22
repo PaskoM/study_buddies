@@ -1,17 +1,17 @@
-<p><%= @study_group.name %></p>
-<p><%= @study_group.date %></p>
-<p><%= @study_group.location.name %></p>
-<p><%= @study_group.location.address %></p>
-<p><%= @study_group.description %></p>
-<p><%= @study_group.duration %></p>
-<p><%= @study_group.num_participants %></p>
-<p>Number od attendees: <%= @study_group.participants.count %></p>
+<h1><%= @study_group.name %></h1>
+<br>
+<p><%= @study_group.date.strftime("%A, %d/%m/%Y") %> at <%= @study_group.time.strftime("%l:%M %p") %></p>
+<h3><%= @study_group.location.name %></h3>
+<p>Adress: <%= @study_group.location.address %>,<%= @study_group.location.city %></p>
+<p>Description <%= @study_group.description %></p>
+<p>Duration: <%= @study_group.duration %>h</p>
+<p>Number of attendees: <%= @study_group.participants.count %></p>
 <p>Number of places left: <%= @study_group.num_places_left%>
-<ul><% @study_group.participants.each do |participant| %>
+<ul>Participants:
+    <% @study_group.participants.each do |participant| %>
     <li><%= participant.user.name%></li>
 <%end%>
 </ul>
-
 
 
 <% if @study_group.user == current_user %>
@@ -28,7 +28,7 @@
 <%= render 'comments/form'%>
 <br/>
 <% @comments.each do |c|%>
-<p><%= c.user.name %></p>
+<p><%= c.user.name %>, said:</p>
 <p><%= c.description %></p>
 <% if c.user == current_user %>
 <p><%= link_to "Delete", c, method: :delete %></p>

@@ -1,15 +1,27 @@
 <%= current_user.name %>
 <h2>My Study Groups</h2>
-<ul>
-<% @created_study_groups.each do |sg| %>
-<li><%= link_to sg.name, sg %></li>
+<% if @created_study_groups == []%>
+    <p>Did you know you can <%= link_to "create your own study group", new_study_group_path %>?</p>
+<% else %>
+    <ul>
+    <% @created_study_groups.each do |sg| %>
+    <li><%= link_to sg.name, sg %></li>
+    <% end %>
+    </ul>
 <% end %>
-</ul>
+
 <br/>
  
- <ul>
+
+
+
  <h2>Study Groups I'm attending</h2>
-<% @joined_study_groups.each do |sg| %>
+    <% if @joined_study_groups == []%>
+        <p>It seems that you aren't in any study group, how about <%= link_to "join", study_groups_path %> one?</p>
+    <% else %>
+     <ul>
+        <% @joined_study_groups.each do |sg| %>
 <li><%= link_to sg.name, sg %></li>
-<% end %>
+        <% end %>
 </ul>
+    <% end %>
