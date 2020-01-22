@@ -36,13 +36,21 @@ class StudyGroupsController < ApplicationController
     end 
 
     def show 
+        # byebug
         @study_group = StudyGroup.find(params[:id])
+        @comment = Comment.new
+        @comment.study_group_id = @study_group.id
+        @comment.user_id = current_user.id
+        # @comment.save
+        
+        @comments = @study_group.comments
     end 
 
     def create
         @study_group = StudyGroup.new(study_group_params)
         @study_group.user_id = current_user.id
         @study_group.save
+        Participant.create(user_id: current_user.id, study_group_id: @study_group.id)
         if @study_group.valid?
             redirect_to @study_group
         else 

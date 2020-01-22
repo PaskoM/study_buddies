@@ -13,6 +13,11 @@ class UsersController < ApplicationController
         @users = User.all 
     end 
 
+    def mygroups
+        @created_study_groups = current_user.created_study_groups 
+        @joined_study_groups = current_user.study_groups
+    end
+
     def create
         @user = User.create(user_params)
         if @user.valid?

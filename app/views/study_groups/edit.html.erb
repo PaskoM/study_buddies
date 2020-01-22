@@ -1,2 +1,3 @@
 <h2>Edit this study group</h2> 
 <%= render 'form'%>
+<%= link_to "Delete", @study_group, method: :delete, data: {confirm: "Are you sure?"}%>

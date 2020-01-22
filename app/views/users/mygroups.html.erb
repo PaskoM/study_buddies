@@ -1,0 +1,15 @@
+<%= current_user.name %>
+<h2>My Study Groups</h2>
+<ul>
+<% @created_study_groups.each do |sg| %>
+<li><%= link_to sg.name, sg %></li>
+<% end %>
+</ul>
+<br/>
+ 
+ <ul>
+ <h2>Study Groups I'm attending</h2>
+<% @joined_study_groups.each do |sg| %>
+<li><%= link_to sg.name, sg %></li>
+<% end %>
+</ul>

@@ -14,6 +14,10 @@
 
 
 
+<% if @study_group.user == current_user %>
+<%= link_to "Edit", edit_study_group_path%>
+<% end %>
+
 
 <% if @study_group.users.include?(current_user)%>
 <%= link_to 'Leave', leave_study_group_path(@study_group) %>
@@ -21,3 +25,9 @@
 <%= link_to 'Join', join_study_group_path(@study_group) %>
 <%end%>
 
+<%= render 'comments/form'%>
+<br/>
+<% @comments.each do |c|%>
+<p><%= c.user.name %></p>
+<p><%= c.description %></p>
+<% end %>

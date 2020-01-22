@@ -1,0 +1,5 @@
+<%= form_for [ @study_group, @comment ] do |f| %>
+<label>Join the discussion, leave a comment</label>
+<p><%= f.text_area :description%></p>
+<p><%= f.submit "Leave a comment" %></p>
+<% end %>
