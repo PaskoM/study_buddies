@@ -77,8 +77,8 @@ class StudyGroupsController < ApplicationController
 
     def destroy
         @study_group = StudyGroup.find(params[:id])
-        @study_group.delete
-        redirect_to '/'
+        @study_group.destroy
+        redirect_to study_groups_path
     end
     
 
