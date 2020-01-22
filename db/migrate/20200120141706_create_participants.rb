@@ -6,6 +6,7 @@ class CreateParticipants < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-    
+
+    add_index :participants, [:user_id, :study_group_id], unique: true
   end
 end

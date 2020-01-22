@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_01_20_180025) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["study_group_id"], name: "index_participants_on_study_group_id"
+    t.index ["user_id", "study_group_id"], name: "index_participants_on_user_id_and_study_group_id", unique: true
     t.index ["user_id"], name: "index_participants_on_user_id"
   end
 
