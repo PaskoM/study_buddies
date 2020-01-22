@@ -30,4 +30,7 @@
 <% @comments.each do |c|%>
 <p><%= c.user.name %></p>
 <p><%= c.description %></p>
+<% if c.user == current_user %>
+<p><%= link_to "Delete", c, method: :delete %></p>
+<% end%>
 <% end %>

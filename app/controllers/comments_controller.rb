@@ -22,11 +22,12 @@ class CommentsController < ApplicationController
     end
     
     def show
-    @comment = Comment.find(params[:id])
+        @comment = Comment.find(params[:id])
+
     end
 
     def edit
-        @commemnt = Comment.find(params[:id])
+        @comment = Comment.find(params[:id])
     end 
 
     def update 
@@ -37,8 +38,10 @@ class CommentsController < ApplicationController
 
     def destroy
         @comment = Comment.find(params[:id])
+        study_group_id = @comment.study_group_id
+        @study_group = StudyGroup.find(study_group_id)
         @comment.delete
-        redirect_to study_group_path
+        redirect_to study_group_path(@study_group)
     end 
     
     private
