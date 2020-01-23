@@ -1,11 +1,26 @@
-<h1>Study Groups</h1>
+<div class="section">
+<div class="section-headlines text-center">
+<h1 class="margin-top-50 white-text">Study Groups</h1>
+</div>
+<div class="row">
 
-<%= link_to "See all study groups", study_groups_path %>
+<%= link_to "Study Groups", study_groups_path, class:"studies-button button" %>
 
+<div class="container">
+<div class="row flex-items-xs-middle flex-items-xs-center">
 <% @filtered_groups.each do |study_group|%>
+<div class="col-xs-12 col-lg-4">
+<div class="card text-xs-center">
+ <div class="card-header">
+ <h2><%=study_group.name%></h2>
 <p><%= link_to study_group.name, study_group %></p>
-<p><%= study_group.date.strftime("%A, %d/%m/%Y") %></p>
-<p>FlatIron Class: <%= study_group.location.name %></p>
-<p>Places Available: <%= study_group.num_places_left %></p>
+</div>
+<h6>Date: <%= study_group.date.strftime("%A, %d/%m/%Y") %></h6>
+<h6>FlatIron Class: <%= study_group.location.name %></h6>
+<h6>Places Available: <%= study_group.num_places_left %></h6>
 <br>
+<a href="/study_groups/<%= study_group.id %>" class="btn btn-gradient mt-2">Find out more</a>
+</div>
+</div>
 <% end %><br>
+</div>
