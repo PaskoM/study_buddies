@@ -13,10 +13,3 @@
  *= require_tree .
  *= require_self
  */
- span .sign-up:hover{
-    background-color: black;
-}
-
-span .sign-up{
-    background-color: #0A8196;
-}
