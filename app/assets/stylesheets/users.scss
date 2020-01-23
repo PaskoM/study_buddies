@@ -173,3 +173,148 @@ span .sign-up{
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;      
   }
+
+  //////////////////////// Study Groups Index //////////////
+
+  .card {
+    border: 0;
+    border-radius: 0px;
+    -webkit-box-shadow: 0 3px 0px 0 rgba(0, 0, 0, .08);
+    box-shadow: 1 3px 1px 0 rgba(0, 0, 0, .08);
+    transition: all .3s ease-in-out;
+    padding: 2.25rem 2.25rem;
+    position: relative;
+    will-change:transform;
+    margin-bottom: 15px; 
+    margin-top: 25px;
+    font-family: 'Roboto',sans-serif;
+    color: black;
+    
+    
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 5px;
+      background-color: #0a8196;
+      transition: 0.5s;
+    }
+    
+    &:hover {
+      transform: scale(1.05);
+      -webkit-box-shadow: 0 20px 35px 0 rgba(0, 0, 0, .08);
+      box-shadow: 0 20px 35px 0 rgba(0, 0, 0, .08);
+      
+      &:after {
+        width: 100%;
+      }
+      
+    }
+    & .card-header {
+      background-color: white;
+      padding-left: 1px;
+      border-bottom: 0px;
+    }
+    & .card-title {
+      margin-bottom: 1rem;
+    }
+    & .card-block {
+      padding-top: 0;
+    }
+    & .list-group-item {
+      border: 0px;
+      padding: .25rem;
+      color: #808080;
+      font-weight: 300;
+    }
+  }
+  
+  // Price
+  .display-2 {
+    font-size: 7rem;
+    letter-spacing: -.5rem;
+    & .currency {
+      font-size: 2.75rem;
+      position: relative;
+      font-weight: 300 + 100;
+      top: -45px;
+      letter-spacing: 0px;
+    }
+    & .period {
+      font-size: 1rem;
+      color: lighten(#808080, 20%);
+      letter-spacing: 0px;
+    }
+  }
+  
+  // Buttons
+  .btn {
+    text-transform: uppercase;
+    font-size: .75rem;
+    font-weight: 300 + 200;
+    color: lighten(black, 15%);
+    border-radius: 0;
+    padding: .75rem 1.25rem;
+    letter-spacing: 1px;
+    background-color: #0a8196;
+  }
+  
+  .btn-gradient { 
+    background-color: #f2f2f2;
+    transition: background .3s ease-in-out;
+    
+    &:hover {
+      
+      color: white;
+      background-color: #0a8196;
+    }
+  }
+
+  .select-css {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    border: none;
+    line-height: 2.8;
+    padding: .6em 1.4em .5em .8em;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    // border: 1px solid #aaa;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+    border-radius: .5em;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #F2F2F2;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+      linear-gradient(to bottom, #F8F8F8 0%,#F2F2F2 100%);
+    background-repeat: no-repeat, repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto, 100%;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.filter-button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    -webkit-box-shadow: 0 3px 0px 0 rgba(0, 0, 0, .08);
+    box-shadow: 1 3px 1px 0 rgba(0, 0, 0, .08);
+    outline: 0;
+    background:#05404b;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 15px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+
+.white-text {
+    color: #FFFFFF;
+}
