@@ -216,7 +216,7 @@ span .sign-up{
     padding: .6em 1.4em .5em .8em;
     width: 100%;
     max-width: 100%; 
-
+}
   //////////////////////// Study Groups Index //////////////
 
   .card {
@@ -397,7 +397,7 @@ span .sign-up{
   max-height: 50%; 
 }
 
-=======
+
 .filter-button {
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
@@ -437,10 +437,8 @@ span .sign-up{
 }
 
 .button {
-    display: block;
-    // max-width: 400px;
-    width: 50%;
-    margin: auto;
-    text-align: center;
-  }
-
+  display: block;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
