@@ -1,9 +1,33 @@
-
-<h1>Hello <%= current_user.name%>,</h1>
-<ul>
-<li><%= link_to "My Study Groups", mygroups_path  %></li>
-<li><%= link_to "Create Study Group", new_study_group_path%></li>
-<li><%= link_to "Update Profile", edit_user_path%></li>
-<li><%= link_to "Delete Profile", @user, method: :delete, data: {confirm: "Are you sure?"}%></li>
-<li><%= link_to "Logout", logout_path%></li>
-</ul>
+<div class="container center">
+    <h1 class="margin-top-50">Hello <%= current_user.name%>,</h1>
+        <div class="card-group margin-top-50">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <%= link_to image_tag('img-1.png', width: '100%'), mygroups_path, class:"img-profile"  %>
+                <br>
+                    <h4 class="card-text text-center margin-top-10 dark_blue"><%= link_to "My Study Groups", mygroups_path, class:"img-profile"  %></h4>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                <%= link_to image_tag('img-2.png', width: '100%'), new_study_group_path, class:"img-profile"  %>
+                <br>
+                <h4 class="card-text text-center margin-top-10 dark_blue"><%= link_to "Create Study Group", new_study_group_path %></h4>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <%= link_to image_tag('img-4.png'), mygroups_path, class:"img-profile card-img-top"  %>
+                <div class="card-body">
+                    <h4 class="card-text text-center margin-top-10 dark_blue"><%= link_to "Update Profile", edit_user_path, class:"dark_blue" %></h4>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body"> 
+                <%= link_to image_tag('img-3.png'), mygroups_path, class:"img-profile"   %>
+                <br>
+                    <h4 class="card-text text-center margin-top-10 dark_blue"><%= link_to "Delete Profile", @user, method: :delete, data: {confirm: "Are you sure?"} %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
