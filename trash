@@ -7,3 +7,28 @@
 <p><%= study_group.duration %></p>
 <p><%= study_group.num_participants %></p>
 <%= link_to "Profile", current_user %>
+
+ <nav>
+        <div class="bg-dark">
+        <div>
+          <% if flash[:not_authorized] %>
+            <p style='color: red'>
+              Session unauthorized
+            </p>
+          <% end %>
+        </div>
+        <% if current_user %>
+        <div class="float-left">
+          <h3 style="margin-bottom: 0;">
+            <%= link_to 'Study Buddies', study_groups_path %>
+          </h3>
+        </div>
+            <div class="float-right bold-text">
+              <%= link_to 'Log out', logout_path %>
+            </div>
+             <div class="float-right">
+              <%= link_to "Profile", current_user %>
+            </div>
+        <% end %>
+        </div>
+      </nav>

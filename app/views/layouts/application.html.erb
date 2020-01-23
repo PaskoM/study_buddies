@@ -11,54 +11,38 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <%= link_to 'Study Buddies', '/study_groups', class: 'navbar-brand'%>
-  <%= link_to image_tag('study_b.png', width: '180'),'/study_groups'%>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div  class='navbar-brand'>
+        <%= link_to image_tag('study_b.png', width: '180'),'/study_groups'%>
+      </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
+     <% if current_user %>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <%= link_to 'Study Groups', study_groups_path , class: 'nav-link'%></span>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+      <li class="nav-item active">
+        <%= link_to 'Create Group', new_study_group_path , class: 'nav-link'%></span>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+      <li class="nav-item active">
+        <%= link_to 'Profile', current_user , class: 'nav-link'%></span>
       </li>
+      <% end %>
     </ul>
+    <% if current_user %>
     <span class="navbar-text">
-      LOGIN HERE MARIOLA PLEASE!! 
+    <nav class="navbar navbar-light bg-light">
+      <%= link_to 'Log out', logout_path, class: "btn btn-sm btn-outline-secondary" %>
+    </nav>
     </span>
+    <% end %>
   </div>
 </nav>
 
-  <nav>
-        <div class="bg-dark">
-        <div>
-          <% if flash[:not_authorized] %>
-            <p style='color: red'>
-              Session unauthorized
-            </p>
-          <% end %>
-        </div>
-        <% if current_user %>
-        <div class="float-left">
-          <h3 style="margin-bottom: 0;">
-            <%= link_to 'Study Buddies', study_groups_path %>
-          </h3>
-        </div>
-            <div class="float-right bold-text">
-              <%= link_to 'Log out', logout_path %>
-            </div>
-             <div class="float-right">
-              <%= link_to "Profile", current_user %>
-            </div>
-        <% end %>
-        </div>
-      </nav>
+ 
     <div class="container">
   <% if flash[:errors] %>
       <div style="color: red;">
