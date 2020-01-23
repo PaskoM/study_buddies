@@ -1,21 +1,45 @@
-<%= form_for (@study_group) do |f|%>
-<p><%= f.label :name %></p>
-<p><%= f.text_field :name%></p>
-<p><%= f.label :subject_id%></p>
-<p><%= f.collection_select :subject_id, Subject.all, :id, :name, {:prompt => "Select Subject"}%></p>
-<p><%= f.label :description%></p>
-<p><%= f.text_area :description%></p>
-<p><%= f.label :date%></p>
-<p><%= f.date_field :date%></p>
-<p><%= f.label :time%></p>
-<p><%= f.time_field :time%></p>
-<p><%= f.label :location_id%></p>
-<p><%= f.collection_select :location_id, Location.all, :id, :name, {:prompt => "Select Location"}%></p>
-<p><%= f.label :duration%></p>
-<p><%= f.number_field :duration, min: 0%></p>
-<p><%= f.label :num_participants, "Participants"%></p>
-<p><%= f.number_field :num_participants, min: 0%></p>
+<div>
 
+    <%= form_for (@study_group) do |f|%>
+    <div class="grey-input">
+    <div class="row">
+        <div class="col-md-6">
+            <label>Group name</label>
+            <%= f.text_field :name%>
+        
+            <%= f.label :description%>
+            <%= f.text_area :description, class:"description"%>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-sm-6">
+                    <%= f.label :date%>
+                    <%= f.date_field :date%>
+                </div>
+                <div class="col-sm-6">  
+                    <%= f.label :time%>
+                    <%= f.time_field :time%>
+                </div>
+            </div>
+            <%= f.collection_select :subject_id, Subject.all, :id, :name, {:prompt => "Select Subject"}, class:"select-css"%>
+            <%= f.collection_select :location_id, Location.all, :id, :name, {:prompt => "Select Location"}, class:"select-css" %>
+                <div class="row ">
+                    <div class="col-sm-6">
+                        <%= f.label :duration%>
+                        <%= f.number_field :duration, min: 0%>
+                    </div>
+                    <div class="col-sm-6">
+                        <%= f.label :num_participants, "Participants"%>
+                        <%= f.number_field :num_participants, min: 0%>
+                    </div>
+                </div>
+          </div>
+    </div>
+    </div>
+        <span>
+             <%= f.submit class:"sign-up submit-button" %>
+        </span>
+<%end%> 
+</div>
+</div>
 
-<p><%= f.submit%></p>
-<%end%>

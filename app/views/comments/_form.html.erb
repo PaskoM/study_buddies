@@ -1,6 +1,8 @@
 <h3>Join the discussion, leave a comment</h3>
 
 <%= form_for [ @study_group, @comment ] do |f| %>
-<p><%= f.text_area :description%></p>
-<p><%= f.submit "Leave a comment" %></p>
+<p><%= f.text_area :description, class:"comment"%></p>
+<span>
+    <%= f.submit "Leave a comment",  class:"sign-up submit-button" %>
+</span>
 <% end %>

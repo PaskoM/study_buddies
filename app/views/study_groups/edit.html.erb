@@ -1,3 +1,13 @@
-<h2>Edit this study group</h2> 
-<%= render 'form'%>
-<%= link_to "Delete", @study_group, method: :delete, data: {confirm: "Are you sure?"}%>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 form">
+            <div class="input">
+                <h2>Edit this study group</h2> 
+                <%= render 'form'%>
+                <span>
+                <%= link_to "Delete", @study_group, method: :delete, data: {confirm: "Are you sure?"}, class:" btn btn-danger margin-20"%>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
