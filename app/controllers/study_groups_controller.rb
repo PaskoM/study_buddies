@@ -1,4 +1,6 @@
 class StudyGroupsController < ApplicationController
+    
+    before_action :require_login
 
     def index
         @study_groups = StudyGroup.all

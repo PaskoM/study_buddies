@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user 
+    helper_method :current_user, :require_login 
     
     def current_user 
         @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -10,5 +10,11 @@ class ApplicationController < ActionController::Base
     def authorize 
         redirect_to '/login' unless current_user 
     end 
+
+    private
+
+    def require_login
+        return head(:forbidden) unless session.include? :user_id
+    end
 
 end
