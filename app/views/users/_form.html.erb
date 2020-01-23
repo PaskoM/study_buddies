@@ -1,11 +1,24 @@
-<%= form_for :user, url: '/users' do |f|%>
-<p><%= f.label :name %></p>
-<p><%= f.text_field :name%></p>
-<p><%= f.label :email%></p>
-<p><%= f.text_field :email%></p>
-<p><%= f.label :password%></p>
-<p><%= f.password_field :password%></p>
-<p><%= f.label :password_confirmation%></p>
-<p><%= f.password_field :password_confirmation%></p>
-<p><%= f.submit%></p>
-<%end%>
+ 
+        <%= form_for :user, url: '/users', html: {class: ""} do |f|%>
+        <div class="grey-input">
+            <label>Name</label><br>
+            <%= f.text_field :name, class:""%><br>
+            <label>Email</label><br>
+            <%= f.text_field :email%><br>
+            <div class="row ">
+                <div class="col-sm-6">
+                    <label>Password</label><br>
+                    <%= f.password_field :password%><br>
+                </div>
+                <div class="col-sm-6">
+                    <label>Confirm password</label><br>
+                    <%= f.password_field :password_confirmation%><br>
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <span>
+                <%= f.submit class:"submit-button" %>
+            </span>
+        </div>
+    <%end%>
