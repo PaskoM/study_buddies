@@ -3,7 +3,7 @@ class StudyGroupsController < ApplicationController
     before_action :require_login
 
     def index
-        @study_groups = StudyGroup.all
+        @study_groups = StudyGroup.all.sort_by { |sg| sg.date }
         @subjects = Subject.all        
     end 
 

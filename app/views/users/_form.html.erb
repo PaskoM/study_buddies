@@ -1,5 +1,5 @@
 
-        <%= form_for :user, url: '/users', html: {class: ""} do |f|%>
+        <%= form_for @user do |f|%>
         <div class="grey-input">
             <label>Name</label><br>
             <%= f.text_field :name, class:""%><br>

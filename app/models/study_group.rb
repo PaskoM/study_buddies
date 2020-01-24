@@ -9,7 +9,7 @@ class StudyGroup < ApplicationRecord
   # validates :num_participants, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 10 }
 
   validates :description, presence: true, length: { maximum: 300 }
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 20 }
   validates :subject, presence: true
   validates :date, presence: true
   validates :time, presence: true

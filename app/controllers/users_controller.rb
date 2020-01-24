@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     end
 
     def new 
+        @user = User.new
     end 
 
     def show 
@@ -35,10 +36,11 @@ class UsersController < ApplicationController
     end 
 
     def update 
+
         @user = User.find(params[:id])
         @user.update(user_params)
         if @user.valid?
-            redirect_to @user 
+            redirect_to user_path(@user) 
         else 
             render 'edit'  
         end 

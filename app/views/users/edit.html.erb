@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-md-5 form">
             <div class="input">
-                <h2>Update Your Profile</h2> 
- <%= form_for :user, url: '/users', html: {class: ""} do |f|%>
+                <h2>Update your profile</h2>  
+        <%= form_for @user do |f|%>
         <div class="grey-input">
             <label>Name</label><br>
             <%= f.text_field :name, class:""%><br>
@@ -21,9 +21,24 @@
             </div>
         </div>
             <span>
-                <%= f.submit "Update", class:"btn login-btn sign-up text-size"%>
+                <%= f.submit class:"sign-up submit-button" %>
             </span>
     <%end%>
+<div class="container">
+    <% if flash[:errors] %>
+        <div style="color: red;">
+            <% flash[:errors].each do |message| %>
+            <p><%= message %></p>
+            <% end %>
+        </div>
+    <% end %>
+    <% if flash[:notice] %>
+        <div style="color: green;">
+            <p><%= flash[:notice] %></p>
+        </div>
+    <% end %>
+</div>
+
 </div>
 </div>
 </div>
