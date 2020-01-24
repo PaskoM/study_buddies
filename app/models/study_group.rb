@@ -55,8 +55,8 @@ class StudyGroup < ApplicationRecord
   end 
 
   # def number_of_participants
-  #   if num_signed > num_participants 
-  #   errors.add(:full, "This study group is now full")
-  #   end 
+  #    if num_signed > num_participants 
+  #    errors.add(:full, "This study group is now full")
+  #    end 
   # end
 end

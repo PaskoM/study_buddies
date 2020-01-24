@@ -20,8 +20,13 @@ class StudyGroupsController < ApplicationController
 
     def join
         @study_group = StudyGroup.find params[:id]
-        Participant.create(user_id: current_user.id, study_group_id: @study_group.id)
-        redirect_to @study_group
+        @participant = Participant.create(user_id: current_user.id, study_group_id: @study_group.id)
+        if !@participant.valid? 
+            flash[:notice] = "This study group is now full"
+            redirect_to @study_group
+        else  
+            redirect_to @study_group
+        end 
     end
 
     def leave

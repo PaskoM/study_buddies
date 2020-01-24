@@ -17,6 +17,20 @@
             </div>
         </div>
             <span>
-                <%= submit_tag "SAVE USER", class:"btn login-btn sign-up text-size"%>
+                <%= f.submit class:"sign-up submit-button" %>
             </span>
     <%end%>
+<div class="container">
+    <% if flash[:errors] %>
+        <div style="color: red;">
+            <% flash[:errors].each do |message| %>
+            <p><%= message %></p>
+            <% end %>
+        </div>
+    <% end %>
+    <% if flash[:notice] %>
+        <div style="color: green;">
+            <p><%= flash[:notice] %></p>
+        </div>
+    <% end %>
+</div>

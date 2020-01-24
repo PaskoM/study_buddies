@@ -12,15 +12,25 @@
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <% if logged_in? %>
       <div  class='navbar-brand'>
         <%= link_to image_tag('study_b.png', width: '180'),'/study_groups'%>
       </div>
+    <% else %>
+      <div  class='navbar-brand'>
+        <%= link_to image_tag('study_b.png', width: '180'),'/'%>
+      </div>
+      <% end %>
+
+
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
-     <% if current_user %>
+     <% if logged_in? %>
       <li class="nav-item active">
         <%= link_to 'Study Groups', study_groups_path , class: 'nav-link'%></span>
       </li>
@@ -32,7 +42,7 @@
       </li>
       <% end %>
     </ul>
-    <% if current_user %>
+    <% if logged_in? %>
     <span class="navbar-text">
     <nav class="navbar navbar-light bg-light">
       <%= link_to 'Log out', logout_path, class: "btn btn-sm btn-outline-secondary" %>
@@ -42,20 +52,6 @@
   </div>
 </nav>
 
- 
-    <div class="container">
-  <% if flash[:errors] %>
-      <div style="color: red;">
-      <% flash[:errors].each do |message| %>
-          <p><%= message %></p>
-      <% end %>
-      </div>
-      <% end %>
-      <% if flash[:notice] %>
-      <div style="color: green;">
-          <p><%= flash[:notice] %></p>
-      </div>
-      <% end %>
     <div class="container"><%= yield %></div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -22,6 +22,14 @@
             <%= link_to 'Join', join_study_group_path(@study_group), class:"btn sign-up margin-20" %>
             <%end%>
         </span>
+
+
+        <% if flash[:notice] %>
+        <div style="color: green;">
+            <p><%= flash[:notice] %></p>
+        </div>
+        <% end %>
+        
             <div class="margin-top-50">
                 <ul class="text-deco-none align-left"><h3>Participants:</h3>
                     <% @study_group.participants.each do |participant| %>
@@ -29,7 +37,6 @@
                 <%end%>
                 </ul>
             </div>
-
 
 
                 <br/>

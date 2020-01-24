@@ -42,4 +42,18 @@
 <%end%> 
 </div>
 </div>
+  <% if flash[:errors] %>
+      <div style="color: red;">
+      <% flash[:errors].each do |message| %>
+          <p><%= message %></p>
+      <% end %>
+      </div>
+      <% end %>
+      <% if flash[:notice] %>
+      <div style="color: green;">
+          <p><%= flash[:notice] %></p>
+      </div>
+      <% end %>
+
+
 
