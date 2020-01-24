@@ -1,12 +1,30 @@
-<h2>Edit</h2> 
-<%= form_for @user do |f|%>
-<p><%= f.label :name %></p>
-<p><%= f.text_field :name%></p>
-<p><%= f.label :email%></p>
-<p><%= f.text_field :email%></p>
-<p><%= f.label :password%></p>
-<p><%= f.password_field :password%></p>
-<p><%= f.label :password_confirmation%></p>
-<p><%= f.password_field :password_confirmation%></p>
-<p><%= f.submit%></p>
-<%end%>
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 form">
+            <div class="input">
+                <h2>Update Your Profile</h2> 
+ <%= form_for :user, url: '/users', html: {class: ""} do |f|%>
+        <div class="grey-input">
+            <label>Name</label><br>
+            <%= f.text_field :name, class:""%><br>
+            <label>Email</label><br>
+            <%= f.text_field :email%><br>
+            <div class="row ">
+                <div class="col-sm-6">
+                    <label>Password</label><br>
+                    <%= f.password_field :password%><br>
+                </div>
+                <div class="col-sm-6">
+                    <label>Confirm password</label><br>
+                    <%= f.password_field :password_confirmation%><br>
+                </div>
+            </div>
+        </div>
+            <span>
+                <%= submit_tag "Update", class:"btn login-btn sign-up text-size"%>
+            </span>
+    <%end%>
+</div>
+</div>
+</div>
+</div>
