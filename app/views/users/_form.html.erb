@@ -1,0 +1,36 @@
+
+        <%= form_for @user do |f|%>
+        <div class="grey-input">
+            <label>Name</label><br>
+            <%= f.text_field :name, class:""%><br>
+            <label>Email</label><br>
+            <%= f.text_field :email%><br>
+            <div class="row ">
+                <div class="col-sm-6">
+                    <label>Password</label><br>
+                    <%= f.password_field :password%><br>
+                </div>
+                <div class="col-sm-6">
+                    <label>Confirm password</label><br>
+                    <%= f.password_field :password_confirmation%><br>
+                </div>
+            </div>
+        </div>
+            <span>
+                <%= f.submit class:"sign-up submit-button" %>
+            </span>
+    <%end%>
+<div class="container">
+    <% if flash[:errors] %>
+        <div style="color: red;">
+            <% flash[:errors].each do |message| %>
+            <p><%= message %></p>
+            <% end %>
+        </div>
+    <% end %>
+    <% if flash[:notice] %>
+        <div style="color: green;">
+            <p><%= flash[:notice] %></p>
+        </div>
+    <% end %>
+</div>

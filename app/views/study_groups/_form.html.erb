@@ -1,0 +1,59 @@
+<div>
+
+    <%= form_for (@study_group) do |f|%>
+    <div class="grey-input">
+    <div class="row">
+        <div class="col-md-6">
+            <label>Group name</label>
+            <%= f.text_field :name%>
+        
+            <%= f.label :description%>
+            <%= f.text_area :description, class:"description"%>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-sm-6">
+                    <%= f.label :date%>
+                    <%= f.date_field :date%>
+                </div>
+                <div class="col-sm-6">  
+                    <%= f.label :time%>
+                    <%= f.time_field :time%>
+                </div>
+            </div>
+            <%= f.collection_select :subject_id, Subject.all, :id, :name, {:prompt => "Select Subject"}, class:"select-css"%>
+            <%= f.collection_select :location_id, Location.all, :id, :name, {:prompt => "Select Location"}, class:"select-css" %>
+                <div class="row ">
+                    <div class="col-sm-6">
+                        <%= f.label :duration%>
+                        <%= f.number_field :duration, min: 0%>
+                    </div>
+                    <div class="col-sm-6">
+                        <%= f.label :num_participants, "Participants"%>
+                        <%= f.number_field :num_participants, min: 0%>
+                    </div>
+                </div>
+          </div>
+    </div>
+    </div>
+        <span>
+             <%= f.submit class:"sign-up submit-button" %>
+        </span>
+<%end%> 
+</div>
+</div>
+  <% if flash[:errors] %>
+      <div style="color: red;">
+      <% flash[:errors].each do |message| %>
+          <p><%= message %></p>
+      <% end %>
+      </div>
+      <% end %>
+      <% if flash[:notice] %>
+      <div style="color: green;">
+          <p><%= flash[:notice] %></p>
+      </div>
+      <% end %>
+
+
+

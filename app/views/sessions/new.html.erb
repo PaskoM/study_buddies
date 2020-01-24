@@ -1,0 +1,36 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 form">
+        <div class="input">
+            <h1 class="text-center">Login</h1>
+            <%= form_tag '/login' do%>
+            <div class="grey-input">
+            <label>Email</label>
+            <%= text_field_tag :email%>
+            <label>Password</label>
+            <%= password_field_tag :password %>
+            </div>
+            <div class="row login-button">
+            <div class="col-lg-12 text-center margin-top-50">
+            <span>
+                <%= submit_tag "Login", class:"btn login-btn sign-up text-size"%>
+            </span>
+            <%end%>
+             <div class="container">
+        <% if flash[:errors] %>
+          <div style="color: red;">
+          <% flash[:errors].each do |message| %>
+              <p><%= message %></p>
+          <% end %>
+          </div>
+        <% end %>
+        <% if flash[:notice] %>
+        <div style="color: green;">
+            <p><%= flash[:notice] %></p>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+
+<div class="container">
+<div class= "row">
+    <div class="col-lg-5 form">
+        <h2>My Study Groups</h2>
+        <div class="margin-top-50"> 
+            <% if @created_study_groups == []%>
+                <p>Did you know you can <%= link_to "create your own study group", new_study_group_path %>?</p>
+            <% else %>
+                <ul>
+                <% @created_study_groups.each do |sg| %>
+                <li class="text-deco-none align-left"><%= link_to sg.name, sg, class:"text-deco-none dark_blue" %></li>
+                <% end %>
+                </ul>
+            <% end %>
+
+        </div>
+            
+    </div>
+    <div class="col-lg-5 form">
+
+        <h2>I'm attending</h2>
+        <div class="margin-top-50"> 
+                <% if @joined_study_groups == []%>
+                    <p>It seems that you aren't in any study group, how about <%= link_to "join", study_groups_path %> one?</p>
+                <% else %>
+                <ul>
+                    <% @joined_study_groups.each do |sg| %>
+            <li class="text-deco-none align-left"><%= link_to sg.name, sg, class:"text-deco-none dark_blue"%></li>
+                    <% end %>
+            </ul>
+                <% end %>
+        </div>
+    </div>
+</div>
+</div>

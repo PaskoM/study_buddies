@@ -1,3 +1,446 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// SCHEMA // 
+
+// 1. GLOBAL STYLES
+// 2. NAVBAR
+
+
+
+///////////////// 1. GLOBAL STYLES //////////@at-root
+
+.text-center{
+    text-align: center;
+}
+
+.center {
+    align-content: center;
+}
+.dark_blue {
+  color: #086778;
+}
+.dark_blue {
+  color: #086778;
+}
+
+.bold-white {
+  color: white;
+}
+
+.float-left{
+    float: left;
+}
+.align-left{
+  text-align: left;
+  font-weight: 500;
+}
+
+.margin-top-50{
+    margin-top: 50px;
+}
+.margin-top-10{
+  margin-top: 10px;
+}
+span .margin-20{
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+body {
+    background: #9DCCD5; /* fallback for old browsers */
+    background: -webkit-linear-gradient(right,#0A8196, #9DCCD5);
+    background: -moz-linear-gradient(right, #0A8196, #9DCCD5);
+    background: -o-linear-gradient(right, #0A8196, #9DCCD5);
+    background: linear-gradient(to left,#0A8196, #9DCCD5);
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .text-deco-none{
+    text-decoration: none;
+    list-style: none;
+  }
+
+///////////////////// 2. NAVBAR ///////////////
+
+
+////////////// 3. welcome ///////////////
+span .sign-up:hover{
+    color: white;
+    background-color: #086778;
+}
+
+span .sign-up{
+    color: white;
+    background-color: #0A8196;
+}
+.sign-up .submit-button{
+    color: white;
+    background-color: #0A8196;
+    margin-top: 50px;
+}
+
+.welcome-buttons .welcome-btn {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 150px;
+}
+
+/////////////////// 3. Login /////////////////
+
+.login-button .login-btn {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 150px;
+}
+
+.form {
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 50px auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  .form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
+  .grey-input input {
+    background: #f2f2f2;
+    font-size: 16px;
+  }
+
+  .text-size{
+      font-size: 300px;
+  }
+
+  .form button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background:#0A8196;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 15px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+  }
+  .form button:hover,.form button:active,.form button:focus {
+    background:#0a8196;
+  }
+  .form .message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
+  }
+  .form .message a {
+    color: #4CAF50;
+    text-decoration: none;
+  }
+  .form .register-form {
+    display: none;
+  }
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .container:before, .container:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .container .info {
+    margin: 50px auto;
+    text-align: center;
+  }
+  .container .info h1 {
+    margin: 0 0 15px;
+    padding: 0;
+    font-size: 36px;
+    font-weight: 300;
+    color: #1a1a1a;
+  }
+  .container .info span {
+    color: #4d4d4d;
+    font-size: 12px;
+  }
+  .container .info span a {
+    color: #000000;
+    text-decoration: none;
+  }
+  .container .info span .fa {
+    color: #EF3B3A;
+  }
+  body {
+    background: #9dccd5; /* fallback for old browsers */
+    background: -webkit-linear-gradient(right,#0a8196, #9dccd5);
+    background: -moz-linear-gradient(right, #0a8196, #9dccd5);
+    background: -o-linear-gradient(right, #0a8196, #9dccd5);
+    background: linear-gradient(to left,#0a8196, #9dccd5);
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;      
+  }
+
+
+  /////////////////// Create a Study Group //////////////////////
+.form .description {
+    width: 100%;
+    height: 57%;
+    background-color: #f2f2f2;
+    border: none;
+}
+
+
+.select-css {
+    border: none;
+    line-height: 1.3;
+    padding: .6em 1.4em .5em .8em;
+    width: 100%;
+    max-width: 100%; 
+}
+  //////////////////////// Study Groups Index //////////////
+
+  .card {
+    border: 0;
+    border-radius: 0px;
+    -webkit-box-shadow: 0 3px 0px 0 rgba(0, 0, 0, .08);
+    box-shadow: 1 3px 1px 0 rgba(0, 0, 0, .08);
+    transition: all .3s ease-in-out;
+    padding: 2.25rem 2.25rem;
+    position: relative;
+    will-change:transform;
+    margin-bottom: 15px; 
+    margin-top: 25px;
+    font-family: 'Roboto',sans-serif;
+    color: black;
+    
+    
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 5px;
+      background-color: #0a8196;
+      transition: 0.5s;
+    }
+    
+    &:hover {
+      transform: scale(1.05);
+      -webkit-box-shadow: 0 20px 35px 0 rgba(0, 0, 0, .08);
+      box-shadow: 0 20px 35px 0 rgba(0, 0, 0, .08);
+      
+      &:after {
+        width: 100%;
+      }
+      
+    }
+    & .card-header {
+      background-color: white;
+      padding-left: 1px;
+      border-bottom: 0px;
+    }
+    & .card-title {
+      margin-bottom: 1rem;
+    }
+    & .card-block {
+      padding-top: 0;
+    }
+    & .list-group-item {
+      border: 0px;
+      padding: .25rem;
+      color: #808080;
+      font-weight: 300;
+    }
+  }
+  
+  // Price
+  .display-2 {
+    font-size: 7rem;
+    letter-spacing: -.5rem;
+    & .currency {
+      font-size: 2.75rem;
+      position: relative;
+      font-weight: 300 + 100;
+      top: -45px;
+      letter-spacing: 0px;
+    }
+    & .period {
+      font-size: 1rem;
+      color: lighten(#808080, 20%);
+      letter-spacing: 0px;
+    }
+  }
+  
+  // Buttons
+  .btn {
+    text-transform: uppercase;
+    font-size: .75rem;
+    font-weight: 300 + 200;
+    color: lighten(black, 15%);
+    border-radius: 0;
+    padding: .75rem 1.25rem;
+    letter-spacing: 1px;
+    background-color: #0a8196;
+  }
+  
+  .btn-gradient { 
+    background-color: #f2f2f2;
+    transition: background .3s ease-in-out;
+    
+    &:hover {
+      
+      color: white;
+      background-color: #0a8196;
+    }
+  }
+
+  .select-css {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    border: none;
+    line-height: 2.8;
+    padding: .6em 1.4em .5em .8em;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    // border: 1px solid #aaa;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+    border-radius: .5em;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #f2f2f2;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+      linear-gradient(to bottom, #f8f8f8 0%,#f2f2f2 100%);
+    background-repeat: no-repeat, repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto, 100%;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+///////////////// comments /////////////////
+.comment {
+  width: 100%;
+  height: 100%;
+  background-color: #f2f2f2;
+  border: none;
+}
+.comments {
+  width: 40%;
+}
+.box {
+  width: 100%;
+  margin: 50px auto;
+  border-radius: 15px;
+  background: #086778;
+  color: #fff;
+  padding: 20px;
+  text-align: right;
+  font-weight: 600;
+  font-family: arial;
+  position: relative;
+}
+
+.sb14:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 15px solid transparent;
+  border-right: 15px solid #086778;
+  border-top: 15px solid #086778;
+  border-bottom: 15px solid transparent;
+  left: -16px;
+  top: 0px;
+}
+
+.profile{
+  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 100%;
+  margin: 10px auto 10px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+
+//////////////// Profile
+
+.img-profile {
+  width: 100%;
+  max-height: 50%; 
+}
+
+
+.filter-button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    -webkit-box-shadow: 0 3px 0px 0 rgba(0, 0, 0, .08);
+    box-shadow: 1 3px 1px 0 rgba(0, 0, 0, .08);
+    outline: 0;
+    background:#05404b;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 15px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+
+.white-text {
+    color: #FFFFFF;
+}
+
+.studies-button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    -webkit-box-shadow: 0 3px 0px 0 rgba(0, 0, 0, .08);
+    box-shadow: 1 3px 1px 0 rgba(0, 0, 0, .08);
+    outline: 0;
+    background:#05404b;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 15px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}
+
+.button {
+  display: block;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+
+////////////////////footer/////////////////////////////

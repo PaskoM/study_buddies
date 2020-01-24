@@ -1,0 +1,60 @@
+<div class="container"> 
+    <div class="row">
+    <div class="col-lg-6 form">
+        <h1 class="align-left"><%= @study_group.name %></h1>
+        <br>
+        <div class="align-left">
+            <p><%= @study_group.date.strftime("%A, %d/%m/%Y") %> at <%= @study_group.time.strftime("%l:%M %p") %></p>
+            <p><b><%= @study_group.location.name %></b> | Address: <%= @study_group.location.address %>,<%= @study_group.location.city %></p>
+            <p>Description <%= @study_group.description %></p>
+            <p>Duration: <%= @study_group.duration %>h</p>
+            <p>Attendees: <%= @study_group.participants.count %></p>
+            <p>Places left: <%= @study_group.num_places_left%>
+        </div>
+        <span>
+            <% if @study_group.user == current_user %>
+            <%= link_to "Edit", edit_study_group_path,class:"btn btn-outline-secondary margin-20"%>
+            <% end %>
+            <% if @study_group.users.include?(current_user)%>
+            
+            <%= link_to 'Leave', leave_study_group_path(@study_group), class:"btn btn-danger margin-20" %>
+            <% else %>
+            <%= link_to 'Join', join_study_group_path(@study_group), class:"btn sign-up margin-20" %>
+            <%end%>
+        </span>
+
+
+        <% if flash[:notice] %>
+        <div style="color: green;">
+            <p><%= flash[:notice] %></p>
+        </div>
+        <% end %>
+        
+            <div class="margin-top-50">
+                <ul class="text-deco-none align-left"><h3>Participants:</h3>
+                    <% @study_group.participants.each do |participant| %>
+                    <li class="text-deco-none align-left"><%= participant.user.name%></li>
+                <%end%>
+                </ul>
+            </div>
+
+
+                <br/>
+                <%= render 'comments/form'%>
+    </div>
+        <div class="rol-lg-6 comments">
+        <% @comments.each do |c|%>
+        <div class="box sb14">
+        <div class="sb14">
+            <p class="align-left"><%= c.user.name %>, said:</p>
+            <p><%= c.description %></p>
+            <% if c.user == current_user %>
+            <p><%= link_to "Delete", c, method: :delete, class:"btn btn-sm btn-secondary" %></p>
+            <% end%>
+        </div>
+        </div>
+        <% end %>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<h3>Join the discussion, leave a comment</h3>
+
+<%= form_for [ @study_group, @comment ] do |f| %>
+<p><%= f.text_area :description, class:"comment"%></p>
+<span>
+    <%= f.submit "Leave a comment",  class:"sign-up submit-button" %>
+</span>
+<% end %>
+
+<% if flash[:errors] %>
+<div style="color: red;">
+<% flash[:errors].each do |message| %>
+<p><%= message %></p>
+<% end %>
+</div>
+<% end %>
+
+<% if flash[:success] %>
+<div style="color: green;">
+<%= flash[:success] %>
+</div>
+<% end %>
