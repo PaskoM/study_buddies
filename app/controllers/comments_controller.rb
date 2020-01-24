@@ -9,12 +9,12 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.study_group_id = params[:id]
     @comment.user_id = current_user.id
-
+    @comment.save
     # @comment = @study_group.comments.new(comment_params)
     # @comment.user = current_user
     
-    if @comment.save
-        flash[:success] = "Comment successfully added"
+    if @comment.valid?
+        flash[:success] = "Comment succesfully added"
         redirect_to study_group_path(@comment.study_group_id)
     else
         flash[:errors] = @comment.errors.full_messages

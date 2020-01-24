@@ -6,3 +6,17 @@
     <%= f.submit "Leave a comment",  class:"sign-up submit-button" %>
 </span>
 <% end %>
+
+<% if flash[:errors] %>
+<div style="color: red;">
+<% flash[:errors].each do |message| %>
+<p><%= message %></p>
+<% end %>
+</div>
+<% end %>
+
+<% if flash[:success] %>
+<div style="color: green;">
+<%= flash[:success] %>
+</div>
+<% end %>
